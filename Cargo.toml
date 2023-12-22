@@ -1,5 +1,5 @@
 [package]
-name = "zero2prod"
+name = "paperboy"
 version = "0.1.0"
 edition = "2021"
 
@@ -8,3 +8,17 @@ edition = "2021"
 [dependencies]
 actix-web = "4.4.0"
 tokio = { version = "1.35.1", features = ["macros", "rt-multi-thread"] }
+
+[dev-dependencies]
+reqwest = "0.11.23"
+
+# We can add a name, if not it uses package.name as a fallback
+[lib]
+path = "src/lib.rs"
+
+# Double brackets means an array in TOML
+# We can have mutliple binaries but only one library per project
+# To have multiple libraries, look into workspaces
+[[bin]]
+path = "src/main.rs"
+name = "paperboy"
